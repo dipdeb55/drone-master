@@ -19,7 +19,7 @@ const OurTools = ({ tool }) => {
                     <p>Minimum Order:{minimumOrder}</p>
                     <p>{description}</p>
                     <div class="card-actions justify-end">
-                        <button onClick={() => navigate(`/tools/${tool._id}`)} class="btn btn-active">Purchase</button>
+                        <button onClick={() => navigate(`/tools/${tool._id}`)} class="btn btn-info">Purchase</button>
                     </div>
                 </div>
             </div>
