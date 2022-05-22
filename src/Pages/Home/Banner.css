@@ -1,0 +1,11 @@
+.banner-section {
+    position: relative;
+    background: url('../../Images/banner.avif') center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
