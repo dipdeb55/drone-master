@@ -7,6 +7,7 @@ import Home from './Pages/Home/Home';
 import Purchase from './Pages/Home/Purchase';
 import Login from './Pages/Auth/Login';
 import SignUp from './Pages/Auth/SignUp';
+import RequireAuth from './Pages/Auth/RequireAuth';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/tools/:id' element={<Purchase></Purchase>}></Route>
+        <Route path='/tools/:id' element={<RequireAuth><Purchase /></RequireAuth>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
       </Routes>
