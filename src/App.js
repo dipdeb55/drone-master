@@ -10,6 +10,7 @@ import SignUp from './Pages/Auth/SignUp';
 import RequireAuth from './Pages/Auth/RequireAuth';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
+import Payment from './Pages/Dashboard/Payment';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
-          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route index element={<MyOrders />}></Route>
+          <Route path='payment/:id' element={<Payment />}></Route>
+          <Route path='payment/:id' element={<Payment />}></Route>
 
         </Route>
       </Routes>

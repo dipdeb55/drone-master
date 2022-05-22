@@ -17,10 +17,12 @@ const Dashboard = () => {
                         {/* <!-- Sidebar content here --> */}
                         <li><Link to='/dashboard' >My Orders</Link></li>
                         <li><Link to='/dashboard/reviews'>Reviews</Link></li>
-                        <li><Link to='/dashboard/addDoctor'>Add a Doctor</Link></li>
-                        <li><Link to='/dashboard/manageDoctor'>Manage Doctors</Link></li>
-                        {<li><Link to='/dashboard/user'>All User</Link></li>}
+                        <li><Link to='/dashboard/addReview'>Add A Review</Link></li>
+                        <li><Link to='/dashboard/Myfrofile'>My Profile</Link></li>
+                        <li><Link to='/dashboard/manageTool'>ManageTool</Link></li>
                         {/* {<li><Link to='/dashboard/user'>All User</Link></li>} */}
+                        <li><Link to='/dashboard/manageOrder'>Manage Orders</Link></li>
+                        <li><Link to='/dashboard/addTool'>Add Tools</Link></li>
                     </ul>
                 </div>
             </div>
