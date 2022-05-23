@@ -11,6 +11,8 @@ import RequireAuth from './Pages/Auth/RequireAuth';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import Payment from './Pages/Dashboard/Payment';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin';
+import AddTool from './Pages/Dashboard/AddTool';
 
 function App() {
   return (
@@ -24,7 +26,8 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<MyOrders />}></Route>
           <Route path='payment/:id' element={<Payment />}></Route>
-          <Route path='payment/:id' element={<Payment />}></Route>
+          <Route path='makeAdmin' element={<MakeAdmin />}></Route>
+          <Route path='addTool' element={<AddTool />}></Route>
 
         </Route>
       </Routes>
