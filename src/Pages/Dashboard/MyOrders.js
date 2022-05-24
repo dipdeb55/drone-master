@@ -46,10 +46,10 @@ const MyOrders = () => {
                             data?.map((order, index) => <tr key={order._id}>
                                 <th>{index + 1}</th>
                                 <td>{order.name}</td>
-                                <td>{order.price} </td>
+                                <td>${order.price} </td>
                                 <td>{order.orderId}</td>
                                 <td>{order.quantity} <small>pcs</small></td>
-                                <td><label onClick={() => setDeleteOrder(order)} for="delete-modal" class="btn btn-xs btn-error">Delete</label></td>
+                                <td>{(order.price && !order.paid) && <label onClick={() => setDeleteOrder(order)} for="delete-modal" class="btn btn-xs btn-error">Delete</label>}</td>
                                 <td>{(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
                                     {(order.price && order.paid) && <div>
                                         <p> <span className='text-success'>PAID</span></p>

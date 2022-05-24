@@ -36,14 +36,14 @@ const AddTool = () => {
             <div class="card w-96 bg-base-100 shadow-xl mx-auto mt-3">
                 <div class="card-body">
                     <div class="card-actions justify-center">
-                        <form onSubmit={addTool} className='grid gap-3'>
-                            <input type="text" name="name" placeholder="name" class="input input-bordered w-full max-w-xs" />
-                            <input type="text" name="image" placeholder="image" class="input input-bordered w-full max-w-xs" />
-                            <input type="text" name="description" placeholder="description" class="input input-bordered w-full max-w-xs" />
-                            <input type="text" name="availableQuantity" placeholder="availableQuantity" class="input input-bordered w-full max-w-xs" />
-                            <input type="text" name="minimumOrder" placeholder="minimumOrder" class="input input-bordered w-full max-w-xs" />
-                            <input type="text" name="price" placeholder="price" class="input input-bordered w-full max-w-xs" />
-                            <input type="submit" value="ADD" class="input btn btn-info input-bordered w-full max-w-xs" />
+                        <form onSubmit={addTool} className='mx-2'>
+                            <input type="text" name="name" placeholder="name" class="input input-bordered w-full max-w-s" />
+                            <input type="text" name="image" placeholder="image" class="mt-2 input input-bordered w-full max-w-xs" />
+                            <input type="text" name="description" placeholder="description" class="mt-3 input input-bordered w-full max-w-xs" />
+                            <input type="text" name="availableQuantity" placeholder="availableQuantity" class="mt-3 input input-bordered w-full max-w-xs" />
+                            <input type="text" name="minimumOrder" placeholder="minimumOrder" class="mt-3 input input-bordered w-full max-w-xs" />
+                            <input type="text" name="price" placeholder="price" class="mt-3 input input-bordered w-full max-w-xs" />
+                            <input type="submit" value="ADD" class="mt-3 input btn btn-info input-bordered w-full max-w-xs" />
                         </form>
                     </div>
                 </div>
