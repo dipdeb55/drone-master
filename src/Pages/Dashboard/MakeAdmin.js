@@ -5,7 +5,10 @@ const MakeAdmin = () => {
 
     const { data, isLoading } = useQuery('orders', () => fetch('http://localhost:5000/user').then(res => res.json()))
 
-    console.log(data)
+    let email = {};
+    const info = data?.map(d => email = d.email)
+    console.log(email)
+
 
     if (isLoading) {
         return <p>Loading....</p>
@@ -21,7 +24,7 @@ const MakeAdmin = () => {
     // }, [])
 
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${data.email}`, {
+        fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

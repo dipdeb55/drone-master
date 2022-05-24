@@ -80,7 +80,7 @@ const CheckoutForm = ({ data }) => {
                 transactionId: paymentIntent.id
             }
             console.log(payment)
-            fetch(`http://localhost:5000/booking/${_id}`, {
+            fetch(`http://localhost:5000/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
