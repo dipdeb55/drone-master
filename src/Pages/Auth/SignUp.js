@@ -6,7 +6,6 @@ import auth from '../../firebase.init';
 import useUser from '../../Hooks/useUser';
 
 
-
 const SignUp = () => {
 
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);

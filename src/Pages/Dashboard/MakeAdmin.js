@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
+import AdminRow from './AdminRow';
 
 const MakeAdmin = () => {
 
-    const { data, isLoading } = useQuery('orders', () => fetch('http://localhost:5000/user').then(res => res.json()))
+    const { data: users, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/user').then(res => res.json()))
 
-    let email = {};
-    const info = data?.map(d => email = d.email)
-    console.log(email)
+    // const { role } = users;
+    // console.log(users)
+
+    // let email = {};
+    // const info = users?.map(d => email = d.email)
+    // console.log(email)
 
 
     if (isLoading) {
@@ -23,22 +27,11 @@ const MakeAdmin = () => {
 
     // }, [])
 
-    const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            })
-    }
+
 
     return (
         <div>
-            <h1>Users:{data?.length}</h1>
+            <h1>Users:{users?.length}</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     {/* <!-- head --> */}
@@ -50,18 +43,19 @@ const MakeAdmin = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* <!-- row 1 --> */}
+
                         {
-                            data?.map((user, index) => <tr key={user._id}>
-                                <th>{index + 1}</th>
-                                <td>{user.email}</td>
-                                <td><button onClick={makeAdmin} class="btn bg-blue-700 btn-xs">Make Admin</button></td>
-                            </tr>)
+                            users?.map(user => <AdminRow
+                                key={user._id}
+                                user={user}
+                                refetch={refetch}
+                            ></AdminRow>)
                         }
+
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 

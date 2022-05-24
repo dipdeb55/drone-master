@@ -9,6 +9,8 @@ const Purchase = () => {
     const { id } = useParams()
     const [tool, setTool] = useState({});
     const { name, price, description, availableQuantity, minimumOrder, _id, image } = tool;
+    const [error, setError] = useState('');
+    const [disable, setDisable] = useState(false)
 
     const [user] = useAuthState(auth)
     console.log(user)
@@ -22,6 +24,8 @@ const Purchase = () => {
 
     const handelAddOrder = e => {
         e.preventDefault()
+
+
 
         const order = {
             name, price, image,
@@ -42,12 +46,25 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
+                if (newQuantity < minimumOrder) {
+                    return setError(`minimum order ${minimumOrder}`,)
+                }
+                else if (newQuantity > availableQuantity) {
+                    return setError(`Sorry we have ${availableQuantity}`)
+                }
                 alert('Order place successfully')
                 e.target.reset()
             })
 
-    }
+        let newQuantity = parseInt(e.target.quantity.value)
+        if (newQuantity < minimumOrder) {
+            <small>minimum order is {minimumOrder}</small>
+        }
+        else if (newQuantity > availableQuantity) {
+            setError(`Sorry we have ${availableQuantity}`)
+        }
 
+    }
 
 
     return (
@@ -60,10 +77,11 @@ const Purchase = () => {
                     <input type="text" placeholder="email" value={user?.email} disabled class="input input-bordered w-full max-w-xs" />
                     <input type="text" placeholder="Type here" value={_id} disabled class="input input-bordered w-full max-w-xs" />
                     <input type="text" placeholder="price" value={price} disabled class="input input-bordered w-full max-w-xs" />
-                    <input type="text" placeholder="quantity" name='quantity' class="input input-bordered w-full max-w-xs" />
                     <input type="text" name='address' placeholder="address" class="input input-bordered w-full max-w-xs" />
                     <input type="text" name='phone' placeholder="phone number" class="input input-bordered w-full max-w-xs" />
-                    <input type="submit" value="Order" class="input btn btn-info input-bordered w-full max-w-xs mb-2" />
+                    <input type="text" placeholder={`minimum order ${minimumOrder}`} name='quantity' class="input input-bordered w-full max-w-xs" />
+                    <label><small className='text-red-600'>{error}</small></label>
+                    <input type="submit" disable class="input btn btn-info input-bordered w-full max-w-xs mb-2" />
                 </form>
             </div>
 
