@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const DeleteModal = ({ deleteOrder, setDeleteOrder, data, refetch }) => {
 
@@ -13,7 +14,7 @@ const DeleteModal = ({ deleteOrder, setDeleteOrder, data, refetch }) => {
             .then(data => {
                 console.log(data)
                 if (data.deletedCount) {
-                    alert('Order deleted')
+                    toast.success('Order deleted')
                     setDeleteOrder(null)
                     refetch()
                 }
@@ -26,8 +27,8 @@ const DeleteModal = ({ deleteOrder, setDeleteOrder, data, refetch }) => {
             <input type="checkbox" id="delete-modal" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                    <h3 class="font-bold text-lg">Are you sure you want to delete <span className='text-xl text-gray-900'>{_id}</span></h3>
-                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <h3 class="font-bold text-lg">Are you sure you want to delete <span className='text-xl text-gray-900'>{name}</span></h3>
+                    <p class="py-4">Note: Once you delete it will remove from your order list</p>
                     <div class="modal-action">
                         <button onClick={() => handelDelete(_id)} class="btn btn-xs btn-error ">Delete</button>
                         <label for="delete-modal" class="btn btn-xs">Cancel</label>

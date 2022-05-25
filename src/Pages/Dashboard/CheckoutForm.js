@@ -91,7 +91,6 @@ const CheckoutForm = ({ data }) => {
                 .then(data => {
                     setProcessing(false)
                     console.log(data)
-                    toast.success('Your payment is confirm')
                 })
         }
 

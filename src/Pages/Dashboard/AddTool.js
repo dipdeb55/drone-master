@@ -1,5 +1,5 @@
 import React from 'react';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const AddTool = () => {
 
@@ -26,8 +26,8 @@ const AddTool = () => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success('tool Add Successful')
                 e.target.reset()
+                toast('tool Add Successful')
             })
 
     }
@@ -49,6 +49,7 @@ const AddTool = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

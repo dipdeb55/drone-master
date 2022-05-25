@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import DeleteModal from './DeleteModal';
-import ManageOrderRow from './ManageOrderRow';
+import ManageToolRow from './ManageToolRow';
 
-const ManageOrders = () => {
-    // const [allOrders, setAllOrders] = useState([])
+const ManageTool = () => {
 
-    // useEffect(() => {
-    //     (fetch('http://localhost:5000/orders'))
-    //         .then(res => res.json())
-    //         .then(data => setAllOrders(data))
-    // }, [])
     const [deleteOrder, setDeleteOrder] = useState(null)
 
-    const url = 'http://localhost:5000/orders';
+    const url = 'http://localhost:5000/tools';
     const { data, refetch } = useQuery('order', () => fetch(url, {
         method: 'GET',
-
     }).then(res => res.json()));
-    // console.log(data)
 
     return (
         <div>
@@ -31,19 +23,19 @@ const ManageOrders = () => {
                             <th>price</th>
                             <th>OrderId</th>
                             <th>Quantity</th>
+                            <th> Preview</th>
                             <th></th>
-                            <th>Order Status</th>
-                            <th>Order Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            data?.map(orders => <ManageOrderRow
-                                key={orders._id}
-                                orders={orders}
+                            data?.map(tools => <ManageToolRow
+                                key={tools._id}
+                                tools={tools}
                                 refetch={refetch}
                                 setDeleteOrder={setDeleteOrder}
-                            ></ManageOrderRow>)
+                            ></ManageToolRow>)
                         }
                     </tbody>
                 </table>
@@ -58,4 +50,4 @@ const ManageOrders = () => {
     );
 };
 
-export default ManageOrders;
+export default ManageTool;

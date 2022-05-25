@@ -16,6 +16,8 @@ import AddTool from './Pages/Dashboard/AddTool';
 import AddReview from './Pages/Dashboard/AddReview';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
 import { ToastContainer } from 'react-toastify';
+import ManageTool from './Pages/Dashboard/ManageTool';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -33,7 +35,7 @@ function App() {
           <Route path='addTool' element={<AddTool />}></Route>
           <Route path='addReview' element={<AddReview />}></Route>
           <Route path='manageOrder' element={<ManageOrders />}></Route>
-
+          <Route path='manageTool' element={<ManageTool />}></Route>
         </Route>
       </Routes>
       <ToastContainer />

@@ -92,7 +92,6 @@ const Purchase = () => {
             </div>
 
 
-
             <div class="card w-96 bg-base-100 shadow-xl mx-auto">
                 <figure class="px-10 pt-10">
                     <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" class="rounded-xl" />

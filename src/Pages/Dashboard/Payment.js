@@ -16,14 +16,6 @@ const Payment = () => {
 
     const [user] = useAuthState(auth);
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/orders/${id}`, {
-    //         method: 'GET'
-    //     }).then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    // }, [])
 
     const url = `http://localhost:5000/orders/${id}`
     const { data, isLoading } = useQuery(['order', id], () => fetch(url, {

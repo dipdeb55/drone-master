@@ -23,7 +23,6 @@ const SignUp = () => {
 
     // let from = location.state?.from?.pathname || "/";
 
-
     let signInError;
 
     if (loading || gLoading || updating) {
@@ -36,7 +35,7 @@ const SignUp = () => {
 
     if (user || gUser) {
         console.log(gUser || user)
-        navigate('/login')
+        navigate('/')
     }
 
     const onSubmit = async data => {

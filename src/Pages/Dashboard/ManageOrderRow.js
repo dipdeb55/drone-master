@@ -30,7 +30,7 @@ const ManageOrderRow = ({ orders, refetch, setDeleteOrder }) => {
             <td>{orders._id}</td>
             <td>{orders.quantity} <small>pcs</small></td>
             <td>{(orders.price && !orders.paid) && <label onClick={() => setDeleteOrder(orders)} for="delete-modal" class="btn btn-xs btn-error">Delete</label>}</td>
-            <td>{(!orders.status) && <button onClick={statusChange} className='btn btn-xs btn-warning'>Pending..</button>}
+            <td>{(!orders.status && orders.paid) && <button onClick={statusChange} className='btn btn-xs btn-warning'>Pending..</button>}
                 {(orders.status) && <button className='btn btn-xs btn-success'>Shipped</button>}</td>
             {/* <td>{(orders.price && !orders.paid) && <label onClick={() => setDeleteOrder(orders)} for="delete-modal" class="btn btn-xs btn-error">Delete</label>}</td> */}
             <td>{(orders.price && !orders.paid) && <Link to={`/dashboard/payment/${orders._id}`}><button className='btn btn-xs btn-warning'>UnPaid</button></Link>}
