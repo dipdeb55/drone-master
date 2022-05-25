@@ -121,9 +121,7 @@ const CheckoutForm = ({ data }) => {
                 </button>
 
             </form>
-            {
-                cardError && <p className='text-red-500 mt-3'>{cardError}</p>
-            }
+            {cardError && <p className='text-red-500 mt-3'>{cardError}</p>}
             {
                 success && <div className='text-green-500'>
                     <p>{success}  </p>

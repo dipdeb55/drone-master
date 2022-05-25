@@ -11,17 +11,8 @@ const MyOrders = () => {
     const [deleteOrder, setDeleteOrder] = useState(null)
     const [user] = useAuthState(auth);
 
-
     const { data, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/orders/myorder?email=${user.email}`).then(res => res.json()))
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/orders/myorder?email=${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setOrders(data)
-    //         })
-
-    // }, [])
 
     return (
         <div>

@@ -11,27 +11,28 @@ const ManageTool = () => {
     const { data, refetch } = useQuery('order', () => fetch(url, {
         method: 'GET',
     }).then(res => res.json()));
+    console.log(data)
 
     return (
-        <div>
+        <div className='mt-6'>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>price</th>
-                            <th>OrderId</th>
-                            <th>Quantity</th>
-                            <th> Preview</th>
                             <th></th>
+                            <th>Name</th>
+                            <th>Preview</th>
+                            <th>price</th>
+                            <th>Stock</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            data?.map(tools => <ManageToolRow
+                            data?.map((tools, index) => <ManageToolRow
                                 key={tools._id}
+                                index={index}
                                 tools={tools}
                                 refetch={refetch}
                                 setDeleteOrder={setDeleteOrder}

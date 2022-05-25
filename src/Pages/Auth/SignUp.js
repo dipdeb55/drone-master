@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useUser from '../../Hooks/useUser';
+import Loading from '../Shared/Loading';
 
 
 const SignUp = () => {
@@ -26,7 +27,7 @@ const SignUp = () => {
     let signInError;
 
     if (loading || gLoading || updating) {
-        return <p>Loading...</p>
+        return <Loading></Loading>
     }
 
     if (error || gError || updateError) {

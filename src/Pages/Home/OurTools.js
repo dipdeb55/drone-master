@@ -11,7 +11,7 @@ const OurTools = ({ tool }) => {
     return (
         <div className='mx-auto'>
             <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+                <figure><img src={image} alt="Shoes" /></figure>
                 <div class="card-body">
                     <h2 class="card-title">{name}</h2>
                     <p>{price}</p>

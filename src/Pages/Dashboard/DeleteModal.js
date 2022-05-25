@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-const DeleteModal = ({ deleteOrder, setDeleteOrder, data, refetch }) => {
+const DeleteModal = ({ deleteOrder, setDeleteOrder, refetch }) => {
 
     const { _id, name } = deleteOrder;
     console.log(deleteOrder)

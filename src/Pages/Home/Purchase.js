@@ -15,8 +15,9 @@ const Purchase = () => {
     const [disabled, setDisabled] = useState(false);
 
     const [user] = useAuthState(auth)
-    console.log(user)
+    // console.log(user)
     // const { data: setTool, isLoading } = useQuery(['tools'], () => fetch(`http://localhost:5000/tools/${id}`)).isFetchedAfterMount(res => res.json())
+    const { refetch } = useQuery();
 
     useEffect(() => {
         fetch(`http://localhost:5000/tools/${id}`)
@@ -26,8 +27,6 @@ const Purchase = () => {
 
     const handelAddOrder = e => {
         e.preventDefault()
-
-
 
         const order = {
             name, price, image,
@@ -62,14 +61,17 @@ const Purchase = () => {
 
     const handleQuantity = e => {
         let quantity = e.target.value;
-        console.log(quantity)
-        if (quantity < minimumOrder) {
+        console.log(quantity, minimumOrder)
+        if (parseInt(quantity) < minimumOrder) {
             setError(`minimum order ${minimumOrder}`)
             setDisabled(true)
         }
-        else if (quantity > availableQuantity) {
+        else if (parseInt(quantity) > availableQuantity) {
             setError(`Sorry we have ${availableQuantity}`)
             setDisabled(true)
+        }
+        else {
+            setDisabled(false)
         }
     }
 
@@ -86,19 +88,23 @@ const Purchase = () => {
                     <input type="text" name='address' placeholder="address" class="input input-bordered w-full max-w-xs" />
                     <input type="text" name='phone' placeholder="phone number" class="input input-bordered w-full max-w-xs" />
                     <input type="text" onChange={handleQuantity} placeholder={`minimum order ${minimumOrder}`} name='quantity' class="input input-bordered w-full max-w-xs" />
-                    <label><small className='text-red-600'>{error}</small></label>
-                    <input type="submit" class="input btn btn-info input-bordered w-full max-w-xs mb-2" />
+                    {
+                        disabled ? <small className="text-error my-0">{error}</small> : ''
+                    }
+                    {
+                        disabled ? <input type="submit" disabled class="input btn btn-info input-bordered w-full max-w-xs mb-2" /> : <input type="submit" class="input btn btn-info input-bordered w-full max-w-xs mb-2" />
+                    }
                 </form>
             </div>
 
 
             <div class="card w-96 bg-base-100 shadow-xl mx-auto">
                 <figure class="px-10 pt-10">
-                    <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" class="rounded-xl" />
+                    <img src={image} alt="Shoes" class="rounded-xl" />
                 </figure>
                 <div class="card-body items-center text-center">
                     <h2 class="card-title">{name}</h2>
-                    <p>{price}</p>
+                    <p>${price}</p>
                     <p>Available:{availableQuantity}</p>
                     <p>Minimum Order:{minimumOrder}</p>
                     <p>{description}</p>

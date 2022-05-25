@@ -36,13 +36,13 @@ const Payment = () => {
                         <p className="text-success text-xl font-bold">Hello, {user?.displayName} </p>
                         <h1 className="text-xl font-bold">Your payment for <span className='text-purple-600'>{data?.name}</span></h1>
                         <p className='text-orange-600'>{data?.quantity}Pcs for {data?.price} only</p>
-                        <p>please keep the orderid: <span className='text-gray-500'>({data?.orderId})</span> to track the order</p>
+                        <p>Please keep the orderId: <span className='text-gray-500'>({data?.orderId})</span> to track the order.</p>
                     </div>
-                    <p>We are using cookies for no reason.</p>
                 </div>
             </div>
 
             <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+                <p>Please put your card details</p>
                 <div class="card-body">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm data={data} />
