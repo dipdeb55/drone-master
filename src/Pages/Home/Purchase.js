@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { set } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -10,11 +11,11 @@ const Purchase = () => {
     const [tool, setTool] = useState({});
     const { name, price, description, availableQuantity, minimumOrder, _id, image } = tool;
     const [error, setError] = useState('');
-    const [disabled, setDisabled] = useState(false)
+    const [disabled, setDisabled] = useState(false);
 
     const [user] = useAuthState(auth)
     console.log(user)
-    // const { data: items, isLoading } = useQuery(['tools'], () => fetch(`http://localhost:5000/tools/${id}`)).isFetchedAfterMount(res => res.json())
+    // const { data: setTool, isLoading } = useQuery(['tools'], () => fetch(`http://localhost:5000/tools/${id}`)).isFetchedAfterMount(res => res.json())
 
     useEffect(() => {
         fetch(`http://localhost:5000/tools/${id}`)
@@ -58,18 +59,17 @@ const Purchase = () => {
 
     }
 
-
-
-    const handelQuantity = event => {
-        // let newQuantity = parseInt(event.target.quantity.value)
-        const newQuantity = event.target.quantity.value;
-        console.log(newQuantity)
-        // if (newQuantity < minimumOrder) {
-        //     <p>{minimumOrder}</p>
-        // }
-        // else if (newQuantity > availableQuantity) {
-        //     <p>{availableQuantity}</p>
-        // }
+    const handleQuantity = e => {
+        let quantity = e.target.value;
+        console.log(quantity)
+        if (quantity < minimumOrder) {
+            setError(`minimum order ${minimumOrder}`)
+            setDisabled(true)
+        }
+        else if (quantity > availableQuantity) {
+            setError(`Sorry we have ${availableQuantity}`)
+            setDisabled(true)
+        }
     }
 
     return (
@@ -84,11 +84,13 @@ const Purchase = () => {
                     <input type="text" placeholder="price" value={price} disabled class="input input-bordered w-full max-w-xs" />
                     <input type="text" name='address' placeholder="address" class="input input-bordered w-full max-w-xs" />
                     <input type="text" name='phone' placeholder="phone number" class="input input-bordered w-full max-w-xs" />
-                    <input type="text" onChange={handelQuantity} placeholder={`minimum order ${minimumOrder}`} name='quantity' class="input input-bordered w-full max-w-xs" />
+                    <input type="text" onChange={handleQuantity} placeholder={`minimum order ${minimumOrder}`} name='quantity' class="input input-bordered w-full max-w-xs" />
                     <label><small className='text-red-600'>{error}</small></label>
                     <input type="submit" class="input btn btn-info input-bordered w-full max-w-xs mb-2" />
                 </form>
             </div>
+
+
 
             <div class="card w-96 bg-base-100 shadow-xl mx-auto">
                 <figure class="px-10 pt-10">
@@ -105,7 +107,7 @@ const Purchase = () => {
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 };
 
