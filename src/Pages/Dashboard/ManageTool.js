@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import DeleteModal from './DeleteModal';
 import ManageToolRow from './ManageToolRow';
+import ToolDeleteModal from './ToolDeleteModal';
 
 const ManageTool = () => {
 
@@ -41,12 +42,12 @@ const ManageTool = () => {
                     </tbody>
                 </table>
             </div>
-            {deleteOrder && <DeleteModal
+            {deleteOrder && <ToolDeleteModal
                 deleteOrder={deleteOrder}
                 data={data}
                 refetch={refetch}
                 setDeleteOrder={setDeleteOrder}
-            ></DeleteModal>}
+            ></ToolDeleteModal>}
         </div >
     );
 };
