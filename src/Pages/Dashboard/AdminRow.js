@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AdminRow = ({ user, refetch }) => {
 
@@ -14,7 +15,7 @@ const AdminRow = ({ user, refetch }) => {
             .then(res => res.json())
             .then(data => {
                 refetch()
-                alert('Admin added')
+                toast.success('Admin added')
             })
     }
 

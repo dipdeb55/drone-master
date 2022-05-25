@@ -15,6 +15,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import AddTool from './Pages/Dashboard/AddTool';
 import AddReview from './Pages/Dashboard/AddReview';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
 
         </Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

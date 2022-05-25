@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { set } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import useTools from '../../Hooks/useTools';
 
@@ -53,7 +54,7 @@ const Purchase = () => {
                 // else if (newQuantity > availableQuantity) {
                 //     return setError(`Sorry we have ${availableQuantity}`, setDisabled())
                 // }
-                alert('Order place successfully')
+                toast.success('Order place successfully')
                 e.target.reset()
             })
 

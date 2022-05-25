@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
+import DeleteModal from './DeleteModal';
 import ManageOrderRow from './ManageOrderRow';
 
 const ManageOrders = () => {
@@ -10,9 +11,10 @@ const ManageOrders = () => {
     //         .then(res => res.json())
     //         .then(data => setAllOrders(data))
     // }, [])
+    const [deleteOrder, setDeleteOrder] = useState(null)
 
     const url = 'http://localhost:5000/orders'
-    const { data: allOrders, refetch } = useQuery('order', () => fetch(url, {
+    const { data, refetch } = useQuery('order', () => fetch(url, {
         method: 'GET',
 
     }).then(res => res.json()));
@@ -30,19 +32,28 @@ const ManageOrders = () => {
                             <th>OrderId</th>
                             <th>Quantity</th>
                             <th></th>
+                            <th>Order Status</th>
+                            <th>Order Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            allOrders?.map(orders => <ManageOrderRow
+                            data?.map(orders => <ManageOrderRow
                                 key={orders._id}
                                 orders={orders}
                                 refetch={refetch}
+                                setDeleteOrder={setDeleteOrder}
                             ></ManageOrderRow>)
                         }
                     </tbody>
                 </table>
             </div>
+            {deleteOrder && <DeleteModal
+                deleteOrder={deleteOrder}
+                data={data}
+                refetch={refetch}
+                setDeleteOrder={setDeleteOrder}
+            ></DeleteModal>}
         </div >
     );
 };

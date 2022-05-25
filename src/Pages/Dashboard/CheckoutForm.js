@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const CheckoutForm = ({ data }) => {
 
@@ -90,6 +91,7 @@ const CheckoutForm = ({ data }) => {
                 .then(data => {
                     setProcessing(false)
                     console.log(data)
+                    toast.success('Your payment is confirm')
                 })
         }
 

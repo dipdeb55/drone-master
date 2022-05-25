@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AddTool = () => {
 
@@ -25,7 +26,7 @@ const AddTool = () => {
         })
             .then(res => res.json())
             .then(data => {
-                alert('tool Add Successful')
+                toast.success('tool Add Successful')
                 e.target.reset()
             })
 
