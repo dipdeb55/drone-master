@@ -21,6 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Footer from './Pages/Shared/Footer';
 import MyPortfolio from './Pages/Home/MyPortfolio';
+import Notfound from './Pages/Shared/Notfound';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path='myProfile' element={<MyProfile />}></Route>
         </Route>
         <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
+        <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
       <Footer />
       <ToastContainer />

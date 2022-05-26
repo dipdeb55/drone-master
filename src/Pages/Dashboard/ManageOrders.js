@@ -4,13 +4,6 @@ import DeleteModal from './DeleteModal';
 import ManageOrderRow from './ManageOrderRow';
 
 const ManageOrders = () => {
-    // const [allOrders, setAllOrders] = useState([])
-
-    // useEffect(() => {
-    //     (fetch('http://localhost:5000/orders'))
-    //         .then(res => res.json())
-    //         .then(data => setAllOrders(data))
-    // }, [])
     const [deleteOrder, setDeleteOrder] = useState(null)
 
     const url = 'http://localhost:5000/orders';

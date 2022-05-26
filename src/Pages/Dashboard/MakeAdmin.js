@@ -11,13 +11,6 @@ const MakeAdmin = () => {
         }
     }).then(res => res.json()))
 
-    // const { role } = users;
-    // console.log(users)
-
-    // let email = {};
-    // const info = users?.map(d => email = d.email)
-    // console.log(email)
-
 
     if (isLoading) {
         return <p>Loading....</p>

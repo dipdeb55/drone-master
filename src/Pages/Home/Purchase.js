@@ -47,16 +47,6 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // let newQuantity = event.target.quantity.value
-                // if (newQuantity < minimumOrder) {
-                //     return setError(`minimum order ${minimumOrder}`, setDisabled(true))
-                // }
-                // else if (newQuantity > availableQuantity) {
-                //     return setError(`Sorry we have ${availableQuantity}`, setDisabled(true))
-                // }
-                // else{
-                //  setDisable(false)
-                // }
                 toast.success('Order place successfully,please pay from you order list')
                 e.target.reset()
             })
