@@ -9,7 +9,7 @@ const AdminRow = ({ user, refetch }) => {
         fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             }
         })
             .then(res => res.json())

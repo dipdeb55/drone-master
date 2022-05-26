@@ -1,3 +1,4 @@
+import { sendPasswordResetEmail } from 'firebase/auth';
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -43,6 +44,7 @@ const Login = () => {
         console.log(data)
         signInWithEmailAndPassword(data.email, data.password);
     };
+
 
     return (
         <div className='flex h-screen justify-center items-center '>
@@ -103,7 +105,7 @@ const Login = () => {
                         {signInError}
                         <input className='btn w-full max-w-xs btn-info' value="Login" type="submit" />
                     </form>
-                    <small>New to Doctors Portal, <Link to='/signup' className='text-primary'>Create a new account</Link> </small>
+                    <small>New to Drone Master, <Link to='/signup' className='text-primary'>Create a new account</Link> </small>
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}

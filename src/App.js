@@ -20,6 +20,7 @@ import ManageTool from './Pages/Dashboard/ManageTool';
 import "react-toastify/dist/ReactToastify.css";
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Footer from './Pages/Shared/Footer';
+import MyPortfolio from './Pages/Home/MyPortfolio';
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
           <Route path='manageTool' element={<ManageTool />}></Route>
           <Route path='myProfile' element={<MyProfile />}></Route>
         </Route>
-
+        <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
       </Routes>
       <Footer />
       <ToastContainer />
