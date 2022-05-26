@@ -16,7 +16,7 @@ const CheckoutForm = ({ data }) => {
     const { name, price, _id, email } = data;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://ancient-hamlet-08121.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -81,7 +81,7 @@ const CheckoutForm = ({ data }) => {
                 transactionId: paymentIntent.id
             }
             console.log(payment)
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://ancient-hamlet-08121.herokuapp.com/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

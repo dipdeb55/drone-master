@@ -19,7 +19,7 @@ const MyProfile = () => {
         const profile = { name, education, phone, city, LinkedIn }
         console.log(profile);
 
-        fetch(`http://localhost:5000/profile`, {
+        fetch(`https://ancient-hamlet-08121.herokuapp.com/profile`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

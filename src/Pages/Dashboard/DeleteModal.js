@@ -7,7 +7,7 @@ const DeleteModal = ({ deleteOrder, setDeleteOrder, refetch }) => {
     console.log(deleteOrder)
 
     const handelDelete = (_id) => {
-        fetch(`http://localhost:5000/orders/${_id}`, {
+        fetch(`https://ancient-hamlet-08121.herokuapp.com/orders/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

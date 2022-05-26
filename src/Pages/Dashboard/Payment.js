@@ -17,7 +17,7 @@ const Payment = () => {
     const [user] = useAuthState(auth);
 
 
-    const url = `http://localhost:5000/orders/${id}`
+    const url = `https://ancient-hamlet-08121.herokuapp.com/orders/${id}`
     const { data, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',
 

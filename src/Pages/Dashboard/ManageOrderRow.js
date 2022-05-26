@@ -8,7 +8,7 @@ const ManageOrderRow = ({ orders, refetch, setDeleteOrder }) => {
     const { id } = useParams()
 
     const statusChange = () => {
-        fetch(`http://localhost:5000/orders/${_id}`, {
+        fetch(`https://ancient-hamlet-08121.herokuapp.com/orders/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

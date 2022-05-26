@@ -15,7 +15,7 @@ const AddReview = () => {
         const review = { name, image, comment }
         console.log(review);
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://ancient-hamlet-08121.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

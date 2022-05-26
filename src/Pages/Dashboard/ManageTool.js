@@ -8,7 +8,7 @@ const ManageTool = () => {
 
     const [deleteOrder, setDeleteOrder] = useState(null)
 
-    const url = 'http://localhost:5000/tools';
+    const url = 'https://ancient-hamlet-08121.herokuapp.com/tools';
     const { data, refetch } = useQuery('order', () => fetch(url, {
         method: 'GET',
     }).then(res => res.json()));

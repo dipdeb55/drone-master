@@ -4,7 +4,7 @@ import AdminRow from './AdminRow';
 
 const MakeAdmin = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('orders', () => fetch('https://ancient-hamlet-08121.herokuapp.com/user', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accesstoken')}`
@@ -16,7 +16,7 @@ const MakeAdmin = () => {
         return <p>Loading....</p>
     }
     // useEffect(() => {
-    //     fetch('http://localhost:5000/user')
+    //     fetch('https://ancient-hamlet-08121.herokuapp.com/user')
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data)

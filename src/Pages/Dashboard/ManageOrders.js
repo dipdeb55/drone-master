@@ -6,7 +6,7 @@ import ManageOrderRow from './ManageOrderRow';
 const ManageOrders = () => {
     const [deleteOrder, setDeleteOrder] = useState(null)
 
-    const url = 'http://localhost:5000/orders';
+    const url = 'https://ancient-hamlet-08121.herokuapp.com/orders';
     const { data, refetch } = useQuery('order', () => fetch(url, {
         method: 'GET',
         'authorization': `Bearer ${localStorage.getItem('accesstoken')}`

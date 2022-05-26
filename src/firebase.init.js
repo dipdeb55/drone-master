@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyArxEf-uSMb31fQso2zXFH-1tEux2emD0A",
-    authDomain: "flying-drone-eb0c2.firebaseapp.com",
-    projectId: "flying-drone-eb0c2",
-    storageBucket: "flying-drone-eb0c2.appspot.com",
-    messagingSenderId: "20678496875",
-    appId: "1:20678496875:web:25bf39dd0968668649572e"
+    apiKey: process.env.REACT_APP_APIKEY,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN,
+    projectId: process.env.REACT_APP_PROJECTID,
+    storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+    appId: process.env.REACT_APP_APPID
 };
 
 // Initialize Firebase

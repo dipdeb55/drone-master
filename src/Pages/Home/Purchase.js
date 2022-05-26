@@ -16,11 +16,11 @@ const Purchase = () => {
 
     const [user] = useAuthState(auth)
     // console.log(user)
-    // const { data: setTool, isLoading } = useQuery(['tools'], () => fetch(`http://localhost:5000/tools/${id}`)).isFetchedAfterMount(res => res.json())
+    // const { data: setTool, isLoading } = useQuery(['tools'], () => fetch(`https://ancient-hamlet-08121.herokuapp.com/tools/${id}`)).isFetchedAfterMount(res => res.json())
     const { refetch } = useQuery();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tools/${id}`)
+        fetch(`https://ancient-hamlet-08121.herokuapp.com/tools/${id}`)
             .then(res => res.json())
             .then(data => setTool(data))
     }, [])
@@ -38,7 +38,7 @@ const Purchase = () => {
         }
         console.log(order)
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://ancient-hamlet-08121.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
