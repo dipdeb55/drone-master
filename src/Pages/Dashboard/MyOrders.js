@@ -23,7 +23,7 @@ const MyOrders = () => {
         <div>
             <h1>My Orders:{data?.length}</h1>
             <div class="overflow-x-auto">
-                <table class="table w-full">
+                <table class="table w-full ">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
@@ -36,7 +36,7 @@ const MyOrders = () => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className=''>
                         {/* <!-- row 1 --> */}
                         {
                             data?.map((order, index) => <tr key={order._id}>

@@ -47,11 +47,15 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
+                // let newQuantity = event.target.quantity.value
                 // if (newQuantity < minimumOrder) {
-                //     return setError(`minimum order ${minimumOrder}`, setDisabled())
+                //     return setError(`minimum order ${minimumOrder}`, setDisabled(true))
                 // }
                 // else if (newQuantity > availableQuantity) {
-                //     return setError(`Sorry we have ${availableQuantity}`, setDisabled())
+                //     return setError(`Sorry we have ${availableQuantity}`, setDisabled(true))
+                // }
+                // else{
+                //  setDisable(false)
                 // }
                 toast.success('Order place successfully,please pay from you order list')
                 e.target.reset()
@@ -76,40 +80,41 @@ const Purchase = () => {
     }
 
     return (
-        <div className='flex justify-items-center mx-20 mt-10'>
-            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <p className='text-xl text-orange-500'>Hello <span className='text-2xl text-blue-700'>{user?.displayName} </span>place your order</p>
-
-                <form onSubmit={handelAddOrder} className='grid grid-cols-1 gap-5 justify-items-center mt-4'>
-                    <input type="text" placeholder="name" value={name} disabled class="input input-bordered w-full max-w-xs" />
-                    <input type="text" placeholder="email" value={user?.email} disabled class="input input-bordered w-full max-w-xs" />
-                    <input type="text" placeholder="Type here" value={_id} disabled class="input input-bordered w-full max-w-xs" />
-                    <input type="text" placeholder="price" value={price} disabled class="input input-bordered w-full max-w-xs" />
-                    <input type="text" name='address' placeholder="address" class="input input-bordered w-full max-w-xs" />
-                    <input type="text" name='phone' placeholder="phone number" class="input input-bordered w-full max-w-xs" />
-                    <input type="text" onChange={handleQuantity} placeholder={`minimum order ${minimumOrder}`} name='quantity' class="input input-bordered w-full max-w-xs" />
-                    {
-                        disabled ? <small className="text-error my-0">{error}</small> : ''
-                    }
-                    {
-                        disabled ? <input type="submit" disabled class="input btn btn-info input-bordered w-full max-w-xs mb-2" /> : <input type="submit" class="input btn btn-info input-bordered w-full max-w-xs mb-2" />
-                    }
-                </form>
-            </div>
-
-
-            <div class="card w-96 bg-base-100 shadow-xl mx-auto">
-                <figure class="px-10 pt-10">
-                    <img src={image} alt="Shoes" class="rounded-xl" />
-                </figure>
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">{name}</h2>
-                    <p>${price}</p>
-                    <p>Available:{availableQuantity}</p>
-                    <p>Minimum Order:{minimumOrder}</p>
-                    <p>{description}</p>
-                    <div class="card-actions">
+        <div>
+            <h1 className='text-3xl font-bold text-info'>Confirm Your Purchase</h1>
+            <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center mx-20 mt-10'>
+                <div class="card w-96 bg-base-100 shadow-xl mx-auto sm:mt-5">
+                    <figure class="px-10 pt-10">
+                        <img src={image} alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">{name}</h2>
+                        <p>${price}</p>
+                        <p>Available:{availableQuantity}</p>
+                        <p>Minimum Order:{minimumOrder}</p>
+                        <p>{description}</p>
+                        <div class="card-actions">
+                        </div>
                     </div>
+                </div>
+
+                {/*  */}
+                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-5">
+                    <p className='text-xl text-orange-500'>Hello <span className='text-2xl text-blue-700'>{user?.displayName} </span>place your order</p>
+
+                    <form onSubmit={handelAddOrder} className='grid grid-cols-1 gap-5 justify-items-center mt-4'>
+                        <input type="text" placeholder="name" value={name} disabled class="input input-bordered w-full max-w-xs" />
+                        <input type="text" placeholder="email" value={user?.email} disabled class="input input-bordered w-full max-w-xs" />
+                        <input type="text" placeholder="Type here" value={_id} disabled class="input input-bordered w-full max-w-xs" />
+                        <input type="text" placeholder="price" value={price} disabled class="input input-bordered w-full max-w-xs" />
+                        <input type="text" onChange={handleQuantity} placeholder={`minimum order ${minimumOrder}`} name='quantity' class="input input-bordered w-full max-w-xs" />
+                        {disabled ? <small className="text-red-600">{error}</small> : ''}
+                        <input type="text" name='address' placeholder="address" class="input input-bordered w-full max-w-xs" />
+                        <input type="text" name='phone' placeholder="phone number" class="input input-bordered w-full max-w-xs" />
+                        {
+                            disabled ? <input type="submit" disabled class="input btn btn-info input-bordered w-full max-w-xs mb-2" /> : <input type="submit" class="input btn btn-info input-bordered w-full max-w-xs mb-2" />
+                        }
+                    </form>
                 </div>
             </div>
 

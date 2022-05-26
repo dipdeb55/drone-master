@@ -18,6 +18,8 @@ import ManageOrders from './Pages/Dashboard/ManageOrders';
 import { ToastContainer } from 'react-toastify';
 import ManageTool from './Pages/Dashboard/ManageTool';
 import "react-toastify/dist/ReactToastify.css";
+import MyProfile from './Pages/Dashboard/MyProfile';
+import Footer from './Pages/Shared/Footer';
 
 function App() {
   return (
@@ -36,8 +38,11 @@ function App() {
           <Route path='addReview' element={<AddReview />}></Route>
           <Route path='manageOrder' element={<ManageOrders />}></Route>
           <Route path='manageTool' element={<ManageTool />}></Route>
+          <Route path='myProfile' element={<MyProfile />}></Route>
         </Route>
+
       </Routes>
+      <Footer />
       <ToastContainer />
     </div>
   );

@@ -7,10 +7,10 @@ const Tools = () => {
     const [tools, setTools] = useTools([]);
     return (
         <div>
-            <h2 className='text-2xl text-accent text-center bold my-8'>Tools {tools.length}</h2>
+            <h2 className='text-3xl text-center font-bold text-info my-8'>What we have</h2>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 {
-                    tools?.map(tool => <OurTools
+                    tools?.slice(-6).map(tool => <OurTools
                         tool={tool}
                         key={tool._id}
                     ></OurTools>)

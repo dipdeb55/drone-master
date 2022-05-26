@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useUser from '../../Hooks/useUser';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
 
@@ -30,7 +31,7 @@ const Login = () => {
     }, [token, from, navigate])
 
     if (loading || gLoading) {
-        return <p>Loading...</p>
+        return <Loading></Loading>
     }
 
     if (error || gError) {
