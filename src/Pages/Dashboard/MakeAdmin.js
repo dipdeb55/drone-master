@@ -4,7 +4,12 @@ import AdminRow from './AdminRow';
 
 const MakeAdmin = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/user').then(res => res.json()))
+    const { data: users, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/user', {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accesstoken')}`
+        }
+    }).then(res => res.json()))
 
     // const { role } = users;
     // console.log(users)

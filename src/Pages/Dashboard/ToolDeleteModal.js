@@ -13,7 +13,7 @@ const ToolDeleteModal = ({ deleteOrder, setDeleteOrder, refetch }) => {
             .then(data => {
                 console.log(data)
                 if (data.deletedCount) {
-                    toast.success('Item deleted')
+                    toast.success('Tool Removed')
                     setDeleteOrder(null)
                     refetch()
                 }

@@ -25,7 +25,7 @@ const AddReview = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                toast.success('Review Add Successful')
+                toast.success('Thank you for the Review')
                 event.target.reset()
             })
 

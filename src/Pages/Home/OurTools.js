@@ -9,21 +9,36 @@ const OurTools = ({ tool }) => {
     const navigate = useNavigate();
 
     return (
-        <div className='mx-auto'>
-            <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src={image} alt="Shoes" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title">{name}</h2>
-                    <p>{price}</p>
-                    <p>Available:{availableQuantity}</p>
-                    <p>Minimum Order:{minimumOrder}</p>
-                    <p>{description}</p>
-                    <div class="card-actions justify-end">
-                        <button onClick={() => navigate(`/tools/${tool._id}`)} class="btn btn-info">Purchase</button>
-                    </div>
+        // <div className='mx-auto'>
+        //     <div class="card card-compact w-96 max-h-96 bg-base-100 shadow-xl">
+        //         <figure><img className='' src={image} alt="Shoes" /></figure>
+        //         <div class="card-body">
+        //             <h2 class="card-title">{name}</h2>
+        //             <p>{price}</p>
+        //             <p>Available:{availableQuantity}</p>
+        //             <p>Minimum Order:{minimumOrder}</p>
+        //             <p>{description}</p>
+        //             <div class="card-actions justify-end">
+        //                 <button onClick={() => navigate(`/tools/${tool._id}`)} class="btn btn-info">Purchase</button>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </div >
+
+        <div class="card w-96 bg-base-100 shadow-xl">
+            <figure><img className='w-40' src={image} alt="Shoes" /></figure>
+            <div class="card-body">
+                <h2 class="card-title">{name}</h2>
+                <p>${price}</p>
+                <p>Available:{availableQuantity}</p>
+                <p>Minimum Order:{minimumOrder}</p>
+                <p>{description}</p>
+                <div class="card-actions justify-end">
+                    <button onClick={() => navigate(`/tools/${tool._id}`)} class="btn btn-info">Purchase</button>
                 </div>
             </div>
-        </div >
+        </div>
+
     );
 };
 

@@ -17,7 +17,6 @@ const useAdmin = user => {
                 .then(data => setAdmin(data.admin))
 
         }
-
     }, [user])
     return [admin]
 }

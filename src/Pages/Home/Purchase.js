@@ -53,7 +53,7 @@ const Purchase = () => {
                 // else if (newQuantity > availableQuantity) {
                 //     return setError(`Sorry we have ${availableQuantity}`, setDisabled())
                 // }
-                toast.success('Order place successfully')
+                toast.success('Order place successfully,please pay from you order list')
                 e.target.reset()
             })
 

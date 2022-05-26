@@ -14,7 +14,7 @@ const DeleteModal = ({ deleteOrder, setDeleteOrder, refetch }) => {
             .then(data => {
                 console.log(data)
                 if (data.deletedCount) {
-                    toast.success('Order deleted')
+                    toast.success('Order deleted from your list')
                     setDeleteOrder(null)
                     refetch()
                 }

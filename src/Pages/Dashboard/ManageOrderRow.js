@@ -17,7 +17,7 @@ const ManageOrderRow = ({ orders, refetch, setDeleteOrder }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                toast.success('Order Shipped')
+                toast.success('Order Shipped Successfully')
                 refetch()
             })
     }

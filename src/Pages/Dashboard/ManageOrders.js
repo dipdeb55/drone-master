@@ -16,7 +16,7 @@ const ManageOrders = () => {
     const url = 'http://localhost:5000/orders';
     const { data, refetch } = useQuery('order', () => fetch(url, {
         method: 'GET',
-
+        'authorization': `Bearer ${localStorage.getItem('accesstoken')}`
     }).then(res => res.json()));
     // console.log(data)
 

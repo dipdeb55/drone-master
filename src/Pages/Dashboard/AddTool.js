@@ -27,7 +27,7 @@ const AddTool = () => {
             .then(res => res.json())
             .then(data => {
                 e.target.reset()
-                toast('tool Add Successful')
+                toast.success('Your Tool has been added')
             })
 
     }
@@ -49,7 +49,6 @@ const AddTool = () => {
                     </div>
                 </div>
             </div>
-            <ToastContainer />
         </div>
     );
 };

@@ -14,9 +14,9 @@ const Reviews = () => {
     }, [])
 
     return (
-        <div>
+        <div className='mt-10'>
             <h1 className='text-4xl text-info'>What Customer Says</h1>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10'>
                 {
                     reviews.map(review => <ReviewCard
                         key={review._id}

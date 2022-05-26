@@ -15,7 +15,7 @@ const AdminRow = ({ user, refetch }) => {
             .then(res => res.json())
             .then(data => {
                 refetch()
-                toast.success('Admin added')
+                toast.success('You just make an Admin')
             })
     }
 
